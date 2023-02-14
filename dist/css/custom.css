@@ -1,0 +1,23 @@
+.content-header {
+	padding: 3px 0.5rem;
+;
+}
+.dark-mode .nav-pills .nav-link {
+	border-bottom:1px solid !important;
+}
+.nav-sidebar .nav-item>.nav-link {
+	margin-bottom:0;
+}
+.nav-item>.nav-link{
+	
+	padding:3px 10px;
+}
+.table td{
+	padding :0px 12px;
+}
+.table th{
+	background-color:#3F6791;
+}
+.nav-sidebar .nav-link>.right, .nav-sidebar .nav-link>p>.right{
+	top: 0.5rem !important;
+}

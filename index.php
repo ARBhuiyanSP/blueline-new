@@ -1,3 +1,8 @@
+<?php
+session_start();
+include 'connection/connect.php';
+include 'function/login_process.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,44 +31,62 @@
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="dashboard.php" method="post">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Username">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-purple">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Remember Me
-              </label>
-            </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-4">
-            
-          </div>
-          <!-- /.col -->
-        </div>
-		<div class="social-auth-links text-center mt-2 mb-3">
-			<button type="submit" class="btn btn-block btn-purple"><i class="fas fa-lock mr-2"></i> Sign In</button>
-		</div>
-      </form>
-
-      
+      <form action="" method="post">
+                            <div class="form-group has-feedback">
+                                <input type="text" name="email" class="form-control" placeholder="User Name">
+                                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                <?php if (isset($_SESSION['error_message']['email_empty']) && !empty($_SESSION['error_message']['email_empty'])) { ?>
+                                    <div class="text-danger">
+                                        <strong>Warning!</strong> <?php echo $_SESSION['error_message']['email_empty']; ?>
+                                    </div>
+                                    <?php
+                                    unset($_SESSION['error_message']['email_empty']);
+                                }
+                                ?>
+                                <?php if (isset($_SESSION['error_message']['email_valid']) && !empty($_SESSION['error_message']['email_valid'])) { ?>
+                                    <div class="text-danger">
+                                        <strong>Warning!</strong> <?php echo $_SESSION['error_message']['email_valid']; ?>
+                                    </div>
+                                    <?php
+                                    unset($_SESSION['error_message']['email_valid']);
+                                }
+                                ?>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <input type="password" name="password" class="form-control" placeholder="Password">
+                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                <?php if (isset($_SESSION['error_message']['password_empty']) && !empty($_SESSION['error_message']['password_empty'])) { ?>
+                                    <div class="text-danger">
+                                        <strong>Warning!</strong> <?php echo $_SESSION['error_message']['password_empty']; ?>
+                                    </div>
+                                    <?php
+                                    unset($_SESSION['error_message']['password_empty']);
+                                }
+                                ?>
+                            </div>
+							<div class="row">
+								  <div class="col-8">
+									<div class="icheck-purple">
+									  <input type="checkbox" id="remember">
+									  <label for="remember">
+										Remember Me
+									  </label>
+									</div>
+								  </div>
+								  <!-- /.col -->
+								  <div class="col-4">
+									
+								  </div>
+								  <!-- /.col -->
+								</div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="submit" name="login_submit" class="btn btn-block btn-purple" value="Login">
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                        </form>
+						
     </div>
     <!-- /.card-body -->
   </div>

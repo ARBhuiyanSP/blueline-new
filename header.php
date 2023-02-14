@@ -1,3 +1,20 @@
+<?php
+session_start();
+date_default_timezone_set("Asia/Dhaka");
+$page_name  =   basename($_SERVER['PHP_SELF']);
+if(!isset($_SESSION['logged']['status'])){
+    header("location: index.php");
+    exit();
+}else{
+    $currentUserId  =   $_SESSION['logged']['user_id'];
+}
+include 'connection/connect.php';
+
+//include 'function/class_loader.php';
+//include 'function/global_connection.php';
+
+include 'helper/utilities.php';
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

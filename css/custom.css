@@ -30,3 +30,7 @@
 .nav-sidebar .nav-link>.right, .nav-sidebar .nav-link>p>.right{
 	top: 0.5rem !important;
 }
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active{
+	background-color:#F26522;
+	color:#ffffff;
+}
